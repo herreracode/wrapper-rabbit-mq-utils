@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /app
+    container_name: wrapper-rabbit-mq-utils
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/app
+
+networks:
+  default:
+    name: external-network
+    external: true
